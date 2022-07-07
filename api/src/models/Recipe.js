@@ -20,6 +20,9 @@ module.exports = (sequelize) => {
       type: DataTypes.TEXT,
       allowNull: false,
     },
+    spoonacularScore: {
+      type: DataTypes.FLOAT,
+    },
     healthScore: {
       type: DataTypes.FLOAT,
     },
