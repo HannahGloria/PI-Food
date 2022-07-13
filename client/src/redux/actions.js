@@ -1,22 +1,106 @@
-///dispatch ---> actions ---> reducer ---> editar los estados ---> componentes
+import axios from "axios";
 
-///action para pedir todo el getrecipes del backend con axios y mandarlo a traves del dispatch ---> un action al ---> al reducer con toda la info para enviar al front
-import axios from 'axios';
+export const getRecipes = () => {
+    return async (dispatch) => {
+        try {
+            const json = await axios.get(
+                "http://localhost:3001/recipes/getRecipes"
+        );
 
-export const getAll = 'GET ALL';
-export const getDiets = 'GET DIETS';
-export const filter = 'FILTER';
-export const filterRecipe = 'FILTER RECIPE';
-export const routeGet= 'http://localhost:3001/recipes/getRecipes';
-export const routeGetDiets = 'http://localhost:3001/diet/getDiet'
-
-export function get(){
-    return async function request(dispatch){
-        let requestBack = await axios.get(routeGet);
         return dispatch({
-            //las acciones son objetos que tienen 2 propiedades: tipo y payload
-            type: getAll, //con type identifico que acciones van llegando
-            payload: requestBack.data //aqui va la info que el reducer va a utilizar para modificar los estados, data devolvera el arreglo de objetos de requestBack
-        })
+            type: "GET_RECIPES",
+            payload: json.data,
+            loading: false,
+        });
+        } catch (error) {
+        console.log(error);
     }
-}
+    };
+};
+
+export const getRecipeName = (name) => {
+    return async (dispatch) => {
+        try {
+            const json = await axios.get(
+            `http://localhost:3001/recipes/getRecipes?name=${name}`
+        );
+
+        return dispatch({
+            type: "GET_NAME",
+            payload: json.data,
+        });
+    } catch (error) {
+        console.log(error);
+    }
+    };
+};
+
+export const getRecipeId = (id) => {
+  // console.log("detailss", id);
+    return async (dispatch) => {
+        try {
+            const json = await axios.get(
+            `http://localhost:3001/recipe/getById/${id}`
+            );
+      // console.log("detail", json.data);
+            return dispatch({
+            type: "GET_DETAILS",
+            payload: json.data,
+        });
+        } catch (error) {
+        console.log(error);
+    }
+    };
+};
+
+export const getDietTypes = () => {
+    return async (dispatch) => {
+        try {
+            const json = await axios.get("http://localhost:3001/diet/getDiet");
+        return dispatch({
+            type: "GET_DIET",
+            payload: json.data,
+        });
+        } catch (error) {
+        console.log(error);
+        }
+    };
+};
+
+export const createRecipe = (payload) => {
+    return async (dispatch) => {
+        try {
+        const response = await axios.post(
+            "http://localhost:3001/recipe/create",
+            payload
+        );
+        return dispatch({ type: "POST_RECIPE", payload: response });
+        } catch (error) {
+        console.log(error);
+    }
+    };
+};
+
+export const cleanDetail = () => {
+    return {
+        type: "GET_DETAILS",
+        payload: [],
+    };
+};
+
+export const filterByType = (payload) => {
+    return {
+        type: "FILTER_TYPES",
+        payload,
+    };
+};
+
+export const orderByName = (payload) => ({
+    type: "ORDER_BY_NAME",
+    payload,
+});
+
+export const orderByScore = (payload) => ({
+    type: "ORDER_BY_SCORE",
+    payload,
+});
