@@ -1,0 +1,22 @@
+.paginas {
+    text-align: center;
+    padding: 20px;
+}
+
+.paginas ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+}
+
+.paginas ul li button{
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 10px;
+    transition: all 0.3s;
+}
+
+.paginas ul li button:hover {
+    color: white;
+    background: black;
+}

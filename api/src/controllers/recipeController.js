@@ -1,13 +1,14 @@
 const { Recipe, Diet } = require('../db.js');
 const { json } = require ('body-parser');
 const axios = require('axios');
-const {API_KEY} = process.env;
+const {API_KEY3} = process.env;
 
 //----------------------------
 //!*[ ]GET/ recipes 
 
 //api ---al final modificar para que sean 100 
-const urlApi = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}&addRecipeInformation=true&number=100`;
+//const responseJson = 
+const urlApi = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY3}&addRecipeInformation=true&number=10`;
 const getApiRecipe = async () => {
     try {
         const api = await axios(urlApi);

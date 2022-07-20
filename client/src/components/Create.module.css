@@ -1,0 +1,32 @@
+.bg{
+    background-image: url(../assets/bgcreate0.jpg);
+    background-size: cover;
+    height: 100vh;
+}
+h1{
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+.create{
+    /* align-items: center; */
+    align-content: center;
+    display: flex;
+    height: 100%;
+}
+.container{
+    margin: auto;
+    vertical-align: middle;
+    
+}
+textarea{
+    border-radius: 5px;
+    padding: 0.3rem;
+    margin-left: 1rem;
+    border: solid rgb(255, 255, 255) 1px;
+}
+input{
+    border-radius: 5px;
+    padding: 0.3rem;
+    margin-left: 1rem;
+    border: solid rgb(255, 255, 255) 1px;
+}

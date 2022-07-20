@@ -18,11 +18,11 @@ export const getRecipes = () => {
     };
 };
 
-export const getRecipeName = (name) => {
+export const getRecipeName = (title) => {
     return async (dispatch) => {
         try {
             const json = await axios.get(
-            `http://localhost:3001/recipes/getRecipes?name=${name}`
+            `http://localhost:3001/recipes/getRecipes?title=${title}`
         );
 
         return dispatch({
@@ -40,7 +40,9 @@ export const getRecipeId = (id) => {
     return async (dispatch) => {
         try {
             const json = await axios.get(
-            `http://localhost:3001/recipe/getById/${id}`
+                //http://localhost:3001/recipe/getById?id=715415
+            //`http://localhost:3001/recipe/getById/${id}`
+            `http://localhost:3001/recipe/getById?id=${id}`
             );
       // console.log("detail", json.data);
             return dispatch({

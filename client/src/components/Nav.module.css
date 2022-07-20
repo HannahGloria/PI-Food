@@ -1,0 +1,17 @@
+/* .nav{
+    margin: 0;
+} */
+.nav>ul{
+    margin: 0;
+}
+ul>li{
+    display: inline-flex;
+    float: right;
+}
+img.imgHome{
+    width: 3rem;
+    margin: 1.5rem;
+}
+img.img{
+    width: 6rem;
+}

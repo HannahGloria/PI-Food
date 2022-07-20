@@ -1,0 +1,17 @@
+.navbar{
+    padding: 0.8rem;
+}
+ul>li{
+    text-decoration: none;
+}
+.link{
+    color: black;
+    font-size: 2rem;
+}
+select{
+    background-color: #E0581F;
+    color: white;
+    border-radius: 10px;
+    border: solid 1px #E0581F;
+    margin: 0.2rem;
+}

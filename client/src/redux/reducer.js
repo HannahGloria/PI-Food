@@ -1,8 +1,11 @@
+import { bindActionCreators } from "redux";
+
 const initialState = {
     allRecipes: [],
     recipes: [],
-    diets: [],
     detail: [],
+    diets: [],
+    created: {},
     isLoading: true,
     };
     
@@ -11,14 +14,14 @@ const initialState = {
         case "GET_RECIPES":
             return {
                 ...state,
-                recipes: action.payload,
+                //recipes: action.payload,
                 allRecipes: action.payload,
-                isLoading: action.loading,
+                //isLoading: action.loading,
             };
         case "GET_NAME":
             return {
                 ...state,
-                recipes: action.payload,
+                allRecipes: action.payload,
             };
         case "GET_DETAILS":
             return {
@@ -33,13 +36,14 @@ const initialState = {
         case "POST_RECIPE":
             return {
                 ...state,
+                created: action.payload
             };
         case "FILTER_TYPES":
                 const allDiets = state.allRecipes;
                 const filterTypes =
                 action.payload === "all"
                     ? allDiets
-                    : allDiets.filter((r) => r.diet.includes(action.payload));
+                    : allDiets.filter((r) => r.diets.includes(action.payload));
             return {
                 ...state,
                 recipes: filterTypes,
@@ -50,10 +54,10 @@ const initialState = {
                     ? state.allRecipes
                     : action.payload === "asc"
                     ? state.recipes.sort((a, b) => {
-                return a.name.toLowerCase().localeCompare(b.name.toLowerCase());//localeCompare() retorna un número indicando si una cadena de carateres de referencia va antes, después o si es la misma que la cadena dada en orden alfabético. ejemplo: 'check'.localeCompare('against'); // 2 o 1 (u otro valor positivo)
+                return a.title.toLowerCase().localeCompare(b.title.toLowerCase());//localeCompare() retorna un número indicando si una cadena de carateres de referencia va antes, después o si es la misma que la cadena dada en orden alfabético. ejemplo: 'check'.localeCompare('against'); // 2 o 1 (u otro valor positivo)
                 })
                     : state.recipes.sort((a, b) => {
-                return b.name.toLowerCase().localeCompare(a.name.toLowerCase());
+                return b.title.toLowerCase().localeCompare(a.title.toLowerCase());
                 });
             return {
                 ...state,
