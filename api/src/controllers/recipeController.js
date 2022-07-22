@@ -1,14 +1,14 @@
 const { Recipe, Diet } = require('../db.js');
 const { json } = require ('body-parser');
 const axios = require('axios');
-const {API_KEY3} = process.env;
+const {API_KEY1} = process.env;
 
 //----------------------------
 //!*[ ]GET/ recipes 
 
 //api ---al final modificar para que sean 100 
 //const responseJson = 
-const urlApi = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY3}&addRecipeInformation=true&number=10`;
+const urlApi = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY1}&addRecipeInformation=true&number=10`;
 const getApiRecipe = async () => {
     try {
         const api = await axios(urlApi);
@@ -21,7 +21,7 @@ const getApiRecipe = async () => {
                 //dishTypes: recipe.dishTypes.map((d=>{return {name: d }})),
                 //summary: recipe.summary,
                 //spoonacularScore: recipe.spoonacularScore,//puntuacion
-                //healthScore: recipe.healthScore,
+                healthScore: recipe.healthScore,
                 //analyzedInstructions: recipe.analyzedInstructions
             }
         })
@@ -101,7 +101,7 @@ const getDetails = async () =>{
                 diets: recipe.diets.map((t=>{return {name: t }})), //tipos de dietas
                 dishTypes: recipe.dishTypes.map((d=>{return {name: d }})),
                 summary: recipe.summary,
-                spoonacularScore: recipe.spoonacularScore,//puntuacion
+                //spoonacularScore: recipe.spoonacularScore,//puntuacion
                 healthScore: recipe.healthScore,
                 analyzedInstructions: recipe.analyzedInstructions[0]?.steps.map((step)=>{return`${step.number}. ${step.step}`;})
             }
@@ -145,7 +145,7 @@ const getByIdDb = async (id) =>{
                 diets: result.diets.map((t=>{return {name: t }})), //tipos de dietas
                 dishTypes: result.dishTypes.map((d=>{return {name: d }})),
                 summary: result.summary,
-                spoonacularScore: result.spoonacularScore,//puntuacion
+                //spoonacularScore: result.spoonacularScore,//puntuacion
                 healthScore: result.healthScore,
                 analyzedInstructions: result.analyzedInstructions[0]?.steps.map((step)=>{return`${step.number}. ${step.step}`;})
             }
@@ -185,7 +185,7 @@ const postRecipes = async (req, res, next) => {
             diets,
             dishTypes,
             summary,
-            spoonacularScore,
+            //spoonacularScore,
             healthScore,
             analyzedInstructions,
             createdInDb: true

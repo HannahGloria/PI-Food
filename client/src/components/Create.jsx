@@ -132,7 +132,8 @@ export default function Create() {
                     <select onChange={(e) => handleSelect(e)} className={styles.select}>
                         {listDiets?.map((t) => {
 
-                            return <option value={t}> {t} </option>})}
+                            return <option value={t}> {t} </option>})
+                        }
                     </select>
                     </div>
                     <div>

@@ -14,7 +14,7 @@ const initialState = {
         case "GET_RECIPES":
             return {
                 ...state,
-                //recipes: action.payload,
+                recipes: action.payload,
                 allRecipes: action.payload,
                 //isLoading: action.loading,
             };
@@ -39,15 +39,17 @@ const initialState = {
                 created: action.payload
             };
         case "FILTER_TYPES":
-                const allDiets = state.allRecipes;
-                const filterTypes =
-                action.payload === "all"
-                    ? allDiets
-                    : allDiets.filter((r) => r.diets.includes(action.payload));
-            return {
+            const allRecipes= state.allRecipes 
+            const dietsFilter = action.payload === "all" ? state.allRecipes :
+                allRecipes.filter(recipe => recipe.diets.find(diet => {
+            if (diet.name === action.payload) {
+                return recipe
+                }   
+            }))
+                return{
                 ...state,
-                recipes: filterTypes,
-            };
+                recipes: dietsFilter
+            } 
         case "ORDER_BY_NAME":
             const orderName =
                 action.payload === "all"
@@ -64,16 +66,18 @@ const initialState = {
                 recipes: orderName,
             };
         case "ORDER_BY_SCORE":
-            const orderScore =
-                action.payload === "all"
-                ? state.allRecipes
-                : action.payload === "high"
-                ? state.recipes.sort((a, b) => b.score - a.score)
-                : state.recipes.sort((a, b) => a.score - b.score);
+            let orderByScore =
+            action.payload === "high" ?
+            state.recipes.sort(function (a, b) { //sort: ordena los elementos de un arreglo y lo devuelve el array ordenado
+            return b.healthScore - a.healthScore;
+            }) :
+            state.recipes.sort(function (a, b) {
+            return a.healthScore - b.healthScore;
+            })
             return {
                 ...state,
-                recipes: orderScore,
-            };
+                recipes: orderByScore,
+            }
         default:
             return { ...state };
     }

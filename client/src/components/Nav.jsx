@@ -16,12 +16,12 @@ const Nav = () => {
             <ul>
                 <li>
                     <NavLink to='/home' onClick={() => dispatch(getRecipes())}>
-                        <img src={img} className={style.img} alt="" />
+                        <img src={imgHome} className={style.imgHome} alt="" />
                     </NavLink>
                 </li>
                 <li>
                     <NavLink to='/'>
-                        <img src={imgHome} className={style.imgHome} alt="" />
+                        <img src={img} className={style.img} alt="" />
                     </NavLink>
                 </li>
                 

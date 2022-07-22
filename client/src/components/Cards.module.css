@@ -1,3 +1,15 @@
+@font-face{
+    font-family: ralewayLight;
+    src:url(../assets/fonts/RalewayRoboto/Raleway/static/Raleway-Light.ttf)
+}
+@font-face{
+    font-family: ralewayBold;
+    src:url(../assets/fonts/RalewayRoboto/Raleway/static/Raleway-Bold.ttf)
+}
+@font-face{
+    font-family: roboto;
+    src:url(../assets/fonts/RalewayRoboto/Roboto/Roboto-Thin.ttf)
+}
 .Card{
     align-content:space-around;
     height: 100%;
@@ -7,6 +19,7 @@
 }
 .title{
     color: black;
+    font-family: ralewayBold;
 }
 img.img{
     width: 90%;
@@ -15,5 +28,23 @@ img.img{
 }
 .diets{
     color: black;
+    font-family: ralewayLight;
     text-decoration-line: none;
+}
+.healthBox{
+    display: inline-flex;
+    align-items: center;
+}
+img.manzana  {
+    width: 10%;
+    height: 10%;
+    margin: auto;
+}
+h4.healthScore{
+    color: #507411;
+    margin: auto;
+}
+h4.textHealth{
+    margin: auto;
+    font-family: roboto;
 }

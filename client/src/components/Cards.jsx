@@ -1,11 +1,6 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
-import { Link } from 'react-router-dom';
 import style from './Cards.module.css';
-import { useDispatch, useSelector } from 'react-redux';
-import { getRecipes } from '../redux/actions';
-import { useEffect } from 'react';
-import Details from './Details';
+import imgManzana from '../assets/manzana.png'
 
 export default function Cards(props){
     return(
@@ -15,6 +10,11 @@ export default function Cards(props){
             </div>
             <div>
                 <img className={style.img} src={props.img} alt={"imagen"}/>
+            </div>
+            <div className={style.healthBox}>
+                <img src={imgManzana} className={style.manzana} alt="healthy" />
+                <h4 className={style.textHealth}>Health score:</h4>
+                <h4 className={style.healthScore}>{props.healthScore}</h4>
             </div>
             <div>
                 <h4 className={style.diets}>

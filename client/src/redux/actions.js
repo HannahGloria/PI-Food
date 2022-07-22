@@ -90,12 +90,14 @@ export const cleanDetail = () => {
     };
 };
 
-export const filterByType = (payload) => {
-    return {
-        type: "FILTER_TYPES",
-        payload,
-    };
-};
+export const filterByType = (payload) => ({
+    // return {
+    //     type: "FILTER_TYPES",
+    //     payload,
+    // };
+    type: "FILTER_TYPES",
+    payload,
+});
 
 export const orderByName = (payload) => ({
     type: "ORDER_BY_NAME",
