@@ -22,6 +22,7 @@ const initialState = {
             return {
                 ...state,
                 allRecipes: action.payload,
+                recipes: action.payload
             };
         case "GET_DETAILS":
             return {

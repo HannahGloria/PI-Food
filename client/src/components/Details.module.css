@@ -1,0 +1,35 @@
+@font-face{
+    font-family: ralewayLight;
+    src:url(../assets/fonts/RalewayRoboto/Raleway/static/Raleway-Light.ttf)
+}
+@font-face{
+    font-family: robotoRegular;
+    src:url(../assets/fonts/RalewayRoboto/Roboto/Roboto-Regular.ttf)
+}
+.section{
+    background-image: url(../assets/bgcreate0.jpg);
+    background-size: cover;
+}
+img.imgRecipe{
+    margin: auto;
+    display: flex;
+    align-content: space-between;
+    padding-top:2%;
+    margin-bottom: 3%;
+}
+h1.titleRecipe{
+    font-family: ralewayLight;
+    font-size: 2.3rem;
+}
+.details{
+    width: 60%;
+    margin: auto;
+}
+.textSummary{
+    font-family: robotoRegular;
+    color: rgb(19, 21, 22);
+}
+.textInstructions{
+    font-family: robotoRegular;
+    color: rgb(19, 21, 22);
+}

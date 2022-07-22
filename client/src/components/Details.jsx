@@ -22,31 +22,33 @@ const Details = () => {
                 {/* <Navbar /> */}
             <div className={style.details}>
                 <div className={style.head}>
-                    <div>
-                        <img src={recipesDetails.image} alt="imagen de la receta" />
+                    <div className={style.imgBox}>
+                        <img src={recipesDetails.image} alt="imagen de la receta" className={style.imgRecipe}/>
                     </div>
-                    <h1>{recipesDetails.title}</h1>
-                    <div className={style.attributes}>
-                        <h4>Healthy Score <span>{recipesDetails.healthScore}</span></h4>
+                    <h1 className={style.titleRecipe}>{recipesDetails.title}</h1>
+                    <div className={style.info}>
+                        <h4 className={style.healthyText}>Healthy Score <span>{recipesDetails.healthScore}</span></h4>
+                        <div className={style.diets}>
+                            Diets: {recipesDetails.diets?.map(e=>e.name).join(', ')}
+                            
+                            { recipesDetails.dishTypes?.length && <h4>Dish Types: {recipesDetails.dishTypes?.map(e=>e.name).join(', ')}</h4>}
+                        </div>
                         
-                        {/* Diets: {recipesDetails.diets?.join(', ')} */}
-                        Diets: {recipesDetails.diets?.map(e=>e.name).join(', ')}
-                        {/* {recipesDetails.diets?.map((d)=>(<p key={d}>Diets: {d}</p>))}  */}
-                        
-                        { recipesDetails.dishTypes?.length && <h4>Dish Types: {recipesDetails.dishTypes?.map(e=>e.name).join(', ')}</h4>}
                     </div>
                 </div>
                 
-                <div className={style.info}>
+                <div className={style.textSummaryInst}>
                     <div>
                         <h3>Summary</h3>
                         {/* {parse(`${recipesDetails.summary}`)} */}
-                        {recipesDetails.summary}
+                        <div className={style.textSummary}>{recipesDetails.summary}</div>
                     </div>
                     <div>
                         <h3>Instructions</h3>
                         {/* {parse(`${recipesDetails.analyzedInstructions}`)} */}
-                        {recipesDetails.analyzedInstructions}
+                        <div className={style.textInstructions}>
+                            {recipesDetails.analyzedInstructions}
+                        </div>
                     </div>
                 </div>
             </div>
